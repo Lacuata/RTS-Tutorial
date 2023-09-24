@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Person from "./components/Person";
+import PersonList from "./components/PersonList";
+import Status from "./components/Status";
+import Heading from "./components/Heading";
+import Body from "./components/Body";
 
 function App() {
+  // passing an object prop
+  const personName = {
+    firstName: "Wency",
+    lastName: "Lacuata",
+  };
+
+  //   passing an array of object
+  const nameList = [
+    {
+      first: "Bruce",
+      last: "Wayne",
+    },
+    {
+      first: "Bruce",
+      last: "Ko",
+    },
+    {
+      first: "Bruce",
+      last: "Lee",
+    },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Person name={personName} />
+      <PersonList namelist={nameList} />
+      <Status status="Success" />
+      {/* children tag  */}
+      {/* <Heading>Placeholder text </Heading> */}
+
+      {/* children with another children */}
+      <Body>
+        <Heading>Body</Heading>
+      </Body>
     </div>
   );
 }
